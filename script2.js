@@ -624,16 +624,14 @@ class GameBoard {
     }
 
     addScore(lines) {
-
         this.#scoreValue += lines * 5;
         this.#score.textContent = 'Score: ' + this.#scoreValue;
 
+        // هر 15 امتیاز یک level
+        const currentLevel = Math.floor(this.#scoreValue / 15);
+        const lastLevel = Math.floor(this.#lastSpeedIncreaseScore / 15);
 
-
-        if (
-            this.#scoreValue % 15 === 0 &&
-            this.#scoreValue !== this.#lastSpeedIncreaseScore
-        ) {
+        if (currentLevel > lastLevel) {
             this.increaseSpeed();
             this.#lastSpeedIncreaseScore = this.#scoreValue;
         }
@@ -1586,5 +1584,6 @@ if (localStorage.getItem('backgroundColor')) {
 }
 
 const tetris = new Tetris();
+
 
 tetris.render();
