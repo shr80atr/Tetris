@@ -639,7 +639,7 @@ class GameBoard {
 
     increaseSpeed() {
         // حداقل سرعت (خیلی سریع نشه)
-        const MIN_SPEED = 100;
+        const MIN_SPEED = 50;
 
         // هر بار 30ms سریع‌تر
         this.#speed = Math.max(MIN_SPEED, this.#speed - 50);
@@ -1587,3 +1587,4 @@ const tetris = new Tetris();
 
 
 tetris.render();
+
